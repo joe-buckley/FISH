@@ -1,0 +1,42 @@
+﻿{
+ 
+// Columns represent {mystery lake, coastal highway, pleasant valley, timberwolf}
+
+//baseCatchesPerHour gives the base catch chance per hour for each region. This is modified by
+//your skill at fishing and by the fish population in the lake, or by the presence of a shoal on the coast.
+
+// For lakes, maxPop is the maximum possible fish stock.
+
+// rePop is the % of maxPop that is achieved in one day when population is most vigourous which is at 50% of maxPop.
+// higher rePop means fish stocks rebound more quickly and are more resilient to over fishing.
+// so if crystal lake (column 4) has a maxPop of 20 and repop of 5% then when the pop is 10,
+// population will increase to 11 the following day. A good rule of thumb is not to take out more than
+// 75% of the fish stock in one fishing trip.
+
+//For Mystery Lake, each hut shares the same population but has a quality factor which
+//affects the chance of catching fish. These numbers are given by lakeHoleQuals and
+//are randomly reassigned at a frequency given by daysBetweenLakeHoleQualityReShuffle (+- 1/3).
+
+//For Coastal highway (Column 2) the repop and maxpop are something totally different.
+//maxPop is the probability P of a shoal happening in any one hut in a given period
+//where period length in hours, T, is given by repop. The probability of catching fish 
+//is zero when no shoal occurs, whereas a shoal boosts the chance of catching fish by 1/P.
+//so if P=0.1, and T is 2 then for 10, two hour periods on average a shoal will happen once
+// every 20 hour. If a shoal happens then for those 2 hours, the chance of catching fish will
+// be multiplied by 10.
+
+//Note that actual period length vary between T-0.33T to T+0.33T
+//So if T=3, periods will be between 2 and 4 hours long
+
+
+"baseCatchesPerHour":[1.0,1.0,1.0,1.0],
+
+//note that column 2 (coastal) gives the probility P of a shoal occuring.
+"maxPops":[40.0,0.2,12.0,20.0],
+
+//note that column 2 (coastal) gives the shoal period length T in hours
+"repopRates":[2.5,3.0,8.5,5.0],
+
+"daysBetweenLakeHoleQualityReshuffle":10.0,
+"lakeHoleQuals":[0.4, 0.6, 0.8, 1]}
+ 

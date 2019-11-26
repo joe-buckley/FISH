@@ -1,0 +1,16 @@
+﻿{
+	"name": "Fish",
+	"description": "Overhaul of fishing mechanic adding population dynamics\n\nConfigurable from json file.",
+	"url": "https://github.com/joe-buckley/FISH",
+	"releases": [
+		{
+			"version": "0.1",
+			"dependencies": [
+				{
+					"name": "ModSettings",
+					"version": "^v1.4"
+				}
+			]
+		}
+	]
+}
